@@ -1,0 +1,16 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: tfserving
+  namespace: seldon
+spec:
+  name: mnist
+  predictors:
+  - graph:
+      children: []
+      implementation: TENSORFLOW_SERVER
+      modelUri: gs://paradigma-seldon/tfserving/mnist-model
+      name: mnist-model
+      parameters: []
+    name: default
+    replicas: 1
